@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skimiforow · Independent games from Portugal</title>
+  <meta name="description" content="Skimiforow makes independent games from Portugal: myth, strategy and atmosphere, made with care. No ads, no pay-to-win. One price, the whole game.">
+  <meta name="theme-color" content="#0b0907">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/emblem-180.png">
+  <meta property="og:title" content="Skimiforow">
+  <meta property="og:description" content="Independent games from Portugal: myth, strategy and atmosphere, made with care.">
+  <meta property="og:image" content="https://skimiforow.github.io/assets/header.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://skimiforow.github.io/">
+  <style>
+    /* Skimiforow — the publisher's page. Same palette and type as the Wyrdtafl
+       site (Dark Nordic Fantasy: night, bone, gold; Cinzel for titles). */
+    @font-face { font-family: 'Cinzel'; src: url('assets/Cinzel[wght].ttf') format('truetype'); font-weight: 400 900; font-display: swap; }
+    :root { --night: #0b0907; --panel: #15171d; --edge: #2b2f3a; --bone: #e3d6b8; --bone-dim: #b3a88f; --gold: #f2c35b; --blood: #8f1d1d; --max: 1080px; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--night); color: var(--bone);
+      font-family: Georgia, 'Palatino Linotype', 'Book Antiqua', Palatino, serif; font-size: 17px; line-height: 1.6;
+      background-image: radial-gradient(ellipse 60% 45% at 8% 100%, rgba(255, 90, 10, 0.12), transparent 70%), radial-gradient(ellipse 50% 40% at 96% 0%, rgba(40, 170, 230, 0.10), transparent 70%);
+      background-attachment: fixed;
+    }
+    a { color: var(--gold); }
+    a:hover, a:focus-visible { color: #fff0c4; }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+    h1, h2, h3 { font-family: 'Cinzel', Georgia, serif; font-weight: 700; text-transform: uppercase; color: var(--gold); margin: 0 0 .5em; line-height: 1.15; }
+    h2 { font-size: clamp(1.2rem, 2.6vw, 1.6rem); letter-spacing: .2em; }
+    h3 { font-size: 1.25rem; letter-spacing: .14em; }
+    p { margin: 0 0 1em; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .skip { position: absolute; left: -999px; top: 8px; background: var(--gold); color: #000; padding: 8px 12px; border-radius: 6px; }
+    .skip:focus { left: 8px; z-index: 10; }
+
+    /* Hero: the profile header (shield, wordmark, strapline) as one image. */
+    .hero { position: relative; aspect-ratio: 16 / 9; max-height: 78vh; width: 100%; overflow: hidden; background: #000; }
+    .hero img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; display: block; }
+    .hero::after { content: ''; position: absolute; inset: auto 0 0 0; height: 30%; background: linear-gradient(transparent, var(--night)); }
+
+    .lead { text-align: center; max-width: 46rem; margin: 8px auto 0; font-size: 1.15rem; color: var(--bone); }
+    .lead small { display: block; margin-top: .6em; color: var(--bone-dim); font-size: .95rem; }
+    .rule { height: 1px; margin: 56px auto; max-width: 420px; background: linear-gradient(90deg, transparent, rgba(242, 195, 91, .6), transparent); }
+
+    .game { display: grid; grid-template-columns: 1.15fr 1fr; gap: 28px; align-items: center; background: var(--panel); border: 1px solid var(--edge); border-radius: 18px; padding: 22px; box-shadow: 0 20px 60px rgba(0, 0, 0, .55); }
+    .game img { width: 100%; height: auto; border-radius: 12px; display: block; }
+    .game .meta { color: var(--bone-dim); font-size: .95rem; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 12px; text-decoration: none; font-family: 'Cinzel', serif; font-weight: 700; letter-spacing: .08em; font-size: .9rem; }
+    .btn.gold { background: linear-gradient(180deg, #f6d27c, #c28d38); color: #120c05; box-shadow: 0 4px 0 rgba(0, 0, 0, .55); }
+    .btn.stone { border: 1px solid var(--edge); color: var(--bone); background: #1c1f27; }
+    .btn small { display: block; font-family: Georgia, serif; font-weight: 400; letter-spacing: 0; font-size: .75rem; opacity: .8; }
+
+    .tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .card { background: var(--panel); border: 1px solid var(--edge); border-radius: 14px; padding: 18px; }
+    .card h3 { font-size: 1rem; color: var(--bone); }
+
+    .about { display: grid; grid-template-columns: 120px 1fr; gap: 22px; align-items: center; }
+    .about img { width: 120px; height: 120px; border-radius: 50%; }
+    footer { margin-top: 64px; padding: 26px 0 40px; border-top: 1px solid var(--edge); color: var(--bone-dim); font-size: .9rem; }
+    footer .links a { margin-right: 18px; }
+    @media (max-width: 760px) {
+      .game { grid-template-columns: 1fr; }
+      .about { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+      .hero { aspect-ratio: 4 / 3; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="hero" aria-label="Skimiforow">
+    <img src="assets/header.jpg" width="2400" height="1350" alt="The Skimiforow shield — a Viking round shield in blood and bone over two crossed skis, the rune Sowilo on its boss — above the word SKIMIFOROW and the line Independent games, Portugal">
+  </header>
+
+  <main id="main" class="wrap">
+    <h1 style="position:absolute;left:-9999px">Skimiforow</h1>
+    <p class="lead">Independent games from Portugal: myth, strategy and atmosphere, made with care. No ads, no pay-to-win. One price, the whole game.
+      <small lang="pt">Jogos independentes de Portugal: mito, estratégia e atmosfera, feitos com cuidado. Sem anúncios nem pay-to-win. Um preço, o jogo inteiro.</small>
+    </p>
+
+    <div class="rule"></div>
+
+    <section aria-labelledby="games">
+      <h2 id="games">Games</h2>
+      <article class="game">
+        <a href="https://skimiforow.github.io/wyrdtafl/"><img src="assets/wyrdtafl-feature.jpg" width="1024" height="500" alt="Wyrdtafl — The Judgement of the Norns: the title carved into a broken rune stone, embers on one side, frost on the other"></a>
+        <div>
+          <h3>Wyrdtafl</h3>
+          <p class="meta">The Judgement of the Norns · Android · Single player</p>
+          <p>A Norse tile duel. Two tiles in your hand, one of Fire and one of Ice: keep them in balance, bet your Wyrd, cast the Galdr Stones, and cross the Nine Realms from Midgard to Odin's high seat before the Norns pass judgement.</p>
+          <div class="buttons">
+            <a class="btn gold" href="https://play.google.com/store/apps/details?id=com.wyrdtafl.game" rel="noopener"><span>Google Play<small>Coming soon</small></span></a>
+            <a class="btn stone" href="https://skimiforow.github.io/wyrdtafl/">The game's page</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <div class="rule"></div>
+
+    <section aria-labelledby="tools">
+      <h2 id="tools">Also made here</h2>
+      <div class="tools">
+        <article class="card">
+          <h3>Snippet Saver</h3>
+          <p>A Chrome extension to save text and images from any page and find them again.</p>
+          <a href="https://skimiforow.github.io/snippet-saver/">About Snippet Saver</a>
+        </article>
+      </div>
+    </section>
+
+    <div class="rule"></div>
+
+    <section class="about" aria-labelledby="about">
+      <img src="assets/emblem.png" width="512" height="512" alt="">
+      <div>
+        <h2 id="about">About</h2>
+        <p>Skimiforow is an independent developer from Portugal. Every game is designed, built and scored here, and sold the old way: you pay once and you get the whole game, with no ads and nothing to buy inside it.</p>
+        <p>Questions, problems or a kind word: <a href="mailto:sersight+wyrdtafl@gmail.com">sersight+wyrdtafl@gmail.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="links"><a href="https://skimiforow.github.io/wyrdtafl/">Wyrdtafl</a><a href="https://skimiforow.github.io/wyrdtafl/privacy/">Wyrdtafl privacy policy</a></p>
+      <p>© 2026 Skimiforow. All rights reserved. Google Play is a trademark of Google LLC. Cinzel typeface © The Cinzel Project Authors, SIL Open Font License.</p>
+    </div>
+  </footer>
+</body>
+</html>
